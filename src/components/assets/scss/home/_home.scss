@@ -1,0 +1,172 @@
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto;
+  min-height: 100vh;
+  main {
+    background-color: $white;
+    height: 100%;
+  }
+  aside {
+    background-color: $background-color;
+  }
+}
+
+.main-wrapper {
+  position: relative;
+  height: inherit;
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .info-wrapper {
+    position: absolute;
+    bottom: 0;
+    // background-color: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.03) 100%
+      )
+      no-repeat;
+    right: 0;
+    left: 0;
+    color: $white;
+    display: flex;
+    align-items: center;
+    // height: 10rem;
+    padding: 3rem 3rem;
+    h2 {
+      @include font($white, "OpenSans-Bold", 9rem, bold);
+      margin: 0;
+      margin-right: 2rem;
+      img {
+        width: 2rem;
+        vertical-align: top;
+        margin: 3rem 0 0 0.5rem;
+      }
+    }
+    .city-info {
+      flex: 1;
+      h1 {
+        @include font($white, "OpenSans-Light", 2.8rem, 300);
+        margin: 0.5rem 0 0;
+        strong {
+          font-family: "OpenSans-Bold", Arial, Helvetica, sans-serif;
+        }
+      }
+      h3 {
+        @include font($white, "OpenSans-SemiBold", 1.6rem, 600);
+        margin: 0.3rem 0 0;
+      }
+    }
+    .github-link {
+      margin-top: 5rem;
+      a {
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+  }
+}
+
+.search-wrapper {
+  margin: 2rem 2rem 1rem;
+  position: relative;
+  input {
+    border-radius: 2rem;
+    padding: 1.5rem 3rem 1.5rem 6rem;
+    outline: none;
+    box-shadow: none;
+    margin: 0;
+    border: none;
+    width: 100%;
+    font-size: 1.6rem;
+    box-shadow: 0 15px 20px #e6e8f2;
+    font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+    &::placeholder {
+      @include font(#6e6e6e, "OpenSans-Regular", 1.6rem, 400);
+    }
+  }
+  .search-icon {
+    position: absolute;
+    top: 1.7rem;
+    left: 3rem;
+  }
+}
+
+.info-card {
+  background-color: $white;
+  padding: 2rem 3rem;
+  border-radius: 2rem;
+  margin: 3rem 2rem 2rem;
+  h3 {
+    @include font($heading-1, "OpenSans-SemiBold", 1.8rem, 600);
+    margin: 0 0 2rem;
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    h4 {
+      @include font($line-text-1, "OpenSans-Regular", 1.4rem, 400);
+      margin: 0;
+    }
+    h5 {
+      @include font($line-text-1, "OpenSans-SemiBold", 1.4rem, 600);
+      margin: 0;
+    }
+  }
+}
+
+.img-card {
+  margin: 3rem 2rem;
+  button {
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    &:focus {
+      outline: none;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.57);
+      border-radius: 2rem;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 2rem;
+      height: 18rem;
+      position: relative;
+    }
+    span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      @include font($white, "OpenSans-SemiBold", 1.5rem, 600);
+    }
+  }
+}
+
+.github-link {
+  text-align: center;
+  margin-top: 3rem;
+  a {
+    @include font($heading-1, "OpenSans-SemiBold", 1.6rem, 600);
+  }
+}
+
+.main-wrapper .info-wrapper h2.error {
+  font-size: 3.5rem;
+}

@@ -1,0 +1,14 @@
+// @include font-face(OpenSans-Regular, "../../fonts/Open_Sans/OpenSans-Regular", 400, normal, ttf);
+// @include font-face(OpenSans-SemiBold, "../../fonts/Open_Sans/OpenSans-SemiBold", 600, normal, ttf);
+// @include font-face(OpenSans-Bold, "../../fonts/Open_Sans/OpenSans-Bold", bold, normal, ttf);
+// @include font-face(OpenSans-Light, "../../fonts/Open_Sans/OpenSans-Light", 300, normal, ttf);
+// SET THE BASE HTML REM, MAKING 1REM=10PX
+html {
+  font-size: 10px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "OpenSans-Regular", Arial, Helvetica, sans-serif;
+}
