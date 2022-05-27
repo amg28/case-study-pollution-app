@@ -90,6 +90,7 @@ class Pollution extends Component {
         <StyledMain>
           <Main
             photo={this.props.pollutionState.photos[0]}
+            cityName={this.props.pollutionState.pollutionCityName}
             pullutionData={this.props.pollutionState.pollutionData}
           />
         </StyledMain>

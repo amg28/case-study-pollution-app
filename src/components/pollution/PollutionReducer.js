@@ -1,8 +1,13 @@
-import { GET_PHOTOS, GET_POLLUTION_DATA } from "./ActionTypes";
+import {
+  GET_PHOTOS,
+  GET_POLLUTION_DATA,
+  GET_POLLUTION_CITY_NAME
+} from "./ActionTypes";
 import { getRandomInt } from "../utils/ReusableFunctions";
 
 const INITIAL_STATE = {
   photos: [],
+  pollutionCityName: "",
   pollutionData: null
 };
 
@@ -24,6 +29,11 @@ const PollutionReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         pollutionData: action.data
+      };
+    case GET_POLLUTION_CITY_NAME:
+      return {
+        ...state,
+        pollutionCityName: action.data
       };
     default:
       return state;

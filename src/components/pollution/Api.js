@@ -1,5 +1,6 @@
 import Unsplash, { toJson } from "unsplash-js";
-import { getPhotos, getPollution } from "./PollutionAction";
+import { getPhotos, getPollution, getPollutionCityName } from "./PollutionAction";
+
 
 const REACT_APP_UNSPLASH_ACCESS_KEY =
   "aRHpJcbcj_Ua4azaNTnqw6JlFHoAlBpkoTOlyHMAF8I";
@@ -25,7 +26,7 @@ export const searchPhotoApi = (cityName = "mumbai") => {
   };
 };
 
-export const getPollutionApi = (cityName = "mumbai") => {
+export const getPollutionApi = (cityName = "Mumbai") => {
   return function(dispatch) {
     fetch(
       `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${REACT_APP_WEATHER_APP_ID}`
@@ -35,6 +36,7 @@ export const getPollutionApi = (cityName = "mumbai") => {
       })
       .then(data => {
         const { lat, lon } = data[0];
+        dispatch(getPollutionCityName(cityName));
 
         return fetch(
           `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${REACT_APP_WEATHER_APP_ID}`
